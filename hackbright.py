@@ -55,7 +55,7 @@ def make_new_student(first_name, last_name, github):
                                'github': github})
     db.session.commit()
 
-    print "Successfully added student: {first} {last}".format(
+    return "Successfully added student: {first} {last}".format(
         first=first_name, last=last_name)
 
 
