@@ -9,8 +9,7 @@
     <p>You have added {{ first }} {{ last }} with github {{ github }} to the database.
         <a href="https://github.com/{{ github }}">click here to go to their github</a>
 
-
-<!-- another way to put a form -->
+<!-- another way to put a link - a button -->
         <form action='/student' method="GET">
             <input name='github' type='hidden' value='{{ github }}'>
             <input type='submit' value='click here for more'>

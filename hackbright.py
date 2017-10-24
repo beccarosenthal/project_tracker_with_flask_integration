@@ -49,7 +49,7 @@ def make_new_student(first_name, last_name, github):
         INSERT INTO Students (first_name, last_name, github)
           VALUES (:first_name, :last_name, :github)
         """
-
+#excecute query, passing in arguments from function call 
     db.session.execute(QUERY, {'first_name': first_name,
                                'last_name': last_name,
                                'github': github})

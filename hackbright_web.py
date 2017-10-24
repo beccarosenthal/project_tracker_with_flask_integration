@@ -13,9 +13,10 @@ def get_student():
     """Show information about a student."""
 
     github = request.args.get('github')
+#get list of all tuples from database by github
     grades_by_project = hackbright.get_grades_by_github(github)
-    print grades_by_project
 
+#unpack tuple from database
     first, last, github = hackbright.get_student_by_github(github)
 
 # def get_grades_by_github(github):
@@ -26,8 +27,6 @@ def get_student():
                                                 last=last, 
                                                 github=github,
                                                 grades_by_project=grades_by_project)
-
-
 
     return html
 
