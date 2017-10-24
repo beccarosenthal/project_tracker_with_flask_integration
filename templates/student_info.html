@@ -8,5 +8,16 @@
 
     <p>GitHub Account: {{ github }}</p>
 
+    <p>
+    <h3>GRADES</h3>
+
+    <ul> 
+    {% for tuple in grades_by_project %}
+        <li>{{tuple[0]}}: {{tuple[1]}}</li>
+
+    {% endfor%}
+    </ul>
+    </p>
+
 </body>
 </html>

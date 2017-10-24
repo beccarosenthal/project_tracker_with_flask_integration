@@ -7,7 +7,15 @@
     <h1>Congratulations, you have added the following student</h1>
 
     <p>You have added {{ first }} {{ last }} with github {{ github }} to the database.
-        <a href="/student?github={{ github }}">click here for more</a>
+        <a href="https://github.com/{{ github }}">click here to go to their github</a>
+
+
+<!-- another way to put a form -->
+        <form action='/student' method="GET">
+            <input name='github' type='hidden' value='{{ github }}'>
+            <input type='submit' value='click here for more'>
+        </form>
+
     </p>
 
 </body>

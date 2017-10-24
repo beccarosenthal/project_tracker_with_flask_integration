@@ -13,15 +13,21 @@ def get_student():
     """Show information about a student."""
 
     github = request.args.get('github')
+    grades_by_project = hackbright.get_grades_by_github(github)
+    print grades_by_project
 
     first, last, github = hackbright.get_student_by_github(github)
 
-    # return "{acct} is the GitHub account for {first} {last}".format(
-    #     acct=github, first=first, last=last)
+# def get_grades_by_github(github):
+#     """Get a list of all grades for a student by their github username"""
+
 
     html = render_template("student_info.html", first=first, 
                                                 last=last, 
-                                                github=github)
+                                                github=github,
+                                                grades_by_project=grades_by_project)
+
+
 
     return html
 
@@ -46,13 +52,11 @@ def create_new_student():
     #.for instead of .args because post request
     first_name = request.form.get("fname")
     last_name = request.form.get("lname")
-    github = request.form.get("ghub")
+    github = request.form.get("github")
 
-
-    hackbright.make_new_student(first_name, last_name, github)
-   
+    hackbright.make_new_student(first_name, last_name, github)  
     
-    return render_template("confirm_student_addition.html", first=first_name, 
+    return render_template("confirm_student_addition.html", first=first_name,
                                                 last=last_name,
                                                 github=github)
 
